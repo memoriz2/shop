@@ -1,0 +1,20 @@
+/* [project]/components/css/Header.css [app-client] (css) */
+.menu-nav {
+  position: relative;
+}
+
+.menu-nav ul {
+  box-shadow: var(--box-shadow);
+  justify-content: space-around;
+  gap: 20px;
+  display: flex;
+}
+
+
+/* [project]/components/css/Footer.css [app-client] (css) */
+footer {
+  box-shadow: var(--box-shadow-top);
+}
+
+
+/*# sourceMappingURL=components_css_4dabc682._.css.map*/

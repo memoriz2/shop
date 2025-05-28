@@ -1,0 +1,10 @@
+.menu-nav {
+    position: relative;
+}
+
+.menu-nav ul {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    box-shadow: var(--box-shadow);
+}

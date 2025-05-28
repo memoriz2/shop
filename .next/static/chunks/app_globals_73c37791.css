@@ -1,0 +1,45 @@
+/* [project]/app/globals.css [app-client] (css) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-family: Arial, Helvetica, sans-serif;
+  --color: #221f1f;
+  --background-color: #f4f2cc;
+  --button-radius: 5px;
+  --line-height: 1.5;
+  --box-shadow: 0 2px 4px #0000001a;
+  --box-shadow-top: 2px 0 4px #0000001a;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color);
+  background-color: var(--background-color);
+  line-height: var(--line-height);
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/*# sourceMappingURL=app_globals_73c37791.css.map*/
