@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/ahndj/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shop/app/layout.tsx"],"sourcesContent":["import type { Metadata } from \"next\";\r\nimport \"./globals.css\";\r\n\r\nexport const metadata: Metadata = {\r\n    title: \"쇼핑몰\",\r\n    description: \"모들 미술학원\", // 검색 엔진에 표시될 웹사이트 설명\r\n};\r\n\r\nexport default function RootLayout({\r\n    children,\r\n}: {\r\n    children: React.ReactNode;\r\n}) {\r\n    return (\r\n        <html lang=\"ko\">\r\n            <body>{children}</body>\r\n        </html>\r\n    );\r\n}\r\n"],"names":[],"mappings":";;;;;;;AAGO,MAAM,WAAqB;IAC9B,OAAO;IACP,aAAa;AACjB;AAEe,SAAS,WAAW,EAC/B,QAAQ,EAGX;IACG,qBACI,8OAAC;QAAK,MAAK;kBACP,cAAA,8OAAC;sBAAM;;;;;;;;;;;AAGnB","debugId":null}},
-    {"offset": {"line": 39, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/ahndj/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shop/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = require('../../module.compiled').vendored[\n  'react-rsc'\n].ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":";AAAAA,OAAOC,OAAO,GAAGC,QAAQ,4HAAyBC,QAAQ,CACxD,YACD,CAACC,kBAAkB","ignoreList":[0],"debugId":null}}]
-}

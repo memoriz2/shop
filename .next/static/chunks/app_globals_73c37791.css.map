@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/ahndj/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shop/app/globals.css"],"sourcesContent":["* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n:root {\r\n    --font-family: Arial, Helvetica, sans-serif;\r\n    --color: #221f1f;\r\n    --background-color: #f4f2cc;\r\n    --button-radius: 5px;\r\n    --line-height: 1.5;\r\n    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n    --box-shadow-top: 2px 0 4px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\nbody {\r\n    font-family: var(--font-family);\r\n    color: var(--color);\r\n    background-color: var(--background-color);\r\n    line-height: var(--line-height);\r\n\r\n    min-height: 100vh;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\nmain {\r\n    flex: 1;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\na:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\nul {\r\n    list-style: none;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;AAMA;;;;;;;;;;AAUA;;;;;;;;;;AAWA;;;;AAIA;;;;AAIA;;;;AAIA","debugId":null}}]
-}
