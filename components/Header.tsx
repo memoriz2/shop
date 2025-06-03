@@ -9,13 +9,13 @@ export default function Header() {
             <nav className="menu-nav">
                 <ul>
                     <li>
-                        <Link href="/">홈</Link>
+                        <Link href="/">home</Link>
                     </li>
                     <li>
-                        <Link href="/product">상품목록</Link>
+                        <Link href="/product">painting</Link>
                     </li>
                     <li>
-                        <Link href="/cart">장바구니</Link>
+                        <Link href="/exhibition">exhibition</Link>
                     </li>
                 </ul>
             </nav>
