@@ -5,7 +5,7 @@ console.log("API_BASE_URL:", API_BASE_URL);
 
 export async function GET() {
     try {
-        const response = await fetch(`${API_BASE_URL}/products`);
+        const response = await fetch(`${API_BASE_URL}/api/products`);
         const data = await response.json();
         return NextResponse.json(data);
     } catch (error) {
