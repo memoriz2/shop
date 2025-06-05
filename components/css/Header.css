@@ -27,10 +27,6 @@
     display: block;
 }
 
-.submenu.show {
-    display: block;
-}
-
 .submenu li {
     padding: 10px 15px;
 }
