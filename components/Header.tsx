@@ -27,18 +27,21 @@ export default function Header() {
                     </li>
                     <li className="dropdown">
                         <Link href="/product">painting</Link>
-                        <ul className="submenu">
+                        <div className="submenu">
                             {Array.isArray(products) &&
                                 products.map((product) => (
-                                    <li key={product.productId}>
+                                    <div
+                                        key={product.productId}
+                                        className="submenu-item"
+                                    >
                                         <Link
                                             href={`/product/${product.productId}`}
                                         >
                                             {product.productName}
                                         </Link>
-                                    </li>
+                                    </div>
                                 ))}
-                        </ul>
+                        </div>
                     </li>
                     <li>
                         <Link href="/exhibition">exhibition</Link>
