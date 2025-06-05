@@ -13,6 +13,7 @@ export default function Header() {
         const fetchProducts = async () => {
             const response = await fetch("/api/products");
             const data = await response.json();
+            console.log("API Response:", data);
             setProducts(data);
         };
         fetchProducts();
@@ -28,13 +29,14 @@ export default function Header() {
                     <li className="dropdown">
                         <Link href="#">painting</Link>
                         <ul className="submenu">
-                            {products.map((product) => (
-                                <li key={product.id}>
-                                    <Link href={`/product/${product.id}`}>
-                                        {product.title}
-                                    </Link>
-                                </li>
-                            ))}
+                            {Array.isArray(products) &&
+                                products.map((product) => (
+                                    <li key={product.id}>
+                                        <Link href={`/product/${product.id}`}>
+                                            {product.title}
+                                        </Link>
+                                    </li>
+                                ))}
                         </ul>
                     </li>
                     <li>
