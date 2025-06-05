@@ -8,7 +8,6 @@ export default function Header() {
     const [products, setProducts] = useState<
         { productId: number; productName: string }[]
     >([]);
-    const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -29,9 +28,7 @@ export default function Header() {
                     </li>
                     <li className="dropdown">
                         <Link href="/product">painting</Link>
-                        <ul
-                            className={`submenu ${isSubmenuOpen ? "show" : ""}`}
-                        >
+                        <ul className="submenu">
                             {Array.isArray(products) &&
                                 products.map((product) => (
                                     <li key={product.productId}>
