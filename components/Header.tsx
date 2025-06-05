@@ -5,9 +5,9 @@ import "./css/Header.css";
 import { useEffect, useState } from "react";
 
 export default function Header() {
-    const [products, setProducts] = useState<{ id: number; title: string }[]>(
-        []
-    );
+    const [products, setProducts] = useState<
+        { productId: number; productName: string }[]
+    >([]);
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
 
     useEffect(() => {
@@ -42,9 +42,11 @@ export default function Header() {
                         >
                             {Array.isArray(products) &&
                                 products.map((product) => (
-                                    <li key={product.id}>
-                                        <Link href={`/product/${product.id}`}>
-                                            {product.title}
+                                    <li key={product.productId}>
+                                        <Link
+                                            href={`/product/${product.productId}`}
+                                        >
+                                            {product.productName}
                                         </Link>
                                     </li>
                                 ))}
