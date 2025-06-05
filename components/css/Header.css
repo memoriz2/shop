@@ -3,7 +3,7 @@
 }
 
 .menu-nav ul {
-    display: flex;
+    /* display: flex; */
     gap: 20px;
     justify-content: space-around;
     box-shadow: var(--box-shadow);
@@ -11,6 +11,7 @@
 
 .dropdown {
     position: relative;
+    display: inline-block;
 }
 
 .submenu {
@@ -22,7 +23,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-width: 200px;
     z-index: 1000;
-    border: 1px solid red; /* debugging border */
+    /* border: 1px solid red; */
 }
 
 .dropdown:hover .submenu {
@@ -31,6 +32,7 @@
 
 .submenu li {
     padding: 10px 15px;
+    display: block;
 }
 
 .submenu li:hover {
