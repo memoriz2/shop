@@ -28,15 +28,7 @@ export default function Header() {
                         <Link href="/">home</Link>
                     </li>
                     <li className="dropdown">
-                        <Link
-                            href="/product"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setIsSubmenuOpen(!isSubmenuOpen);
-                            }}
-                        >
-                            painting
-                        </Link>
+                        <Link href="/product">painting</Link>
                         <ul
                             className={`submenu ${isSubmenuOpen ? "show" : ""}`}
                         >
