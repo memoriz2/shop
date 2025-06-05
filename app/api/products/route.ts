@@ -9,7 +9,12 @@ export async function GET() {
         return NextResponse.json(data);
     } catch (error) {
         return NextResponse.json(
-            { error: "Failed to fetch submenu" },
+            {
+                error:
+                    error instanceof Error
+                        ? error.message
+                        : "Failed to fetch submenu",
+            },
             { status: 500 }
         );
     }
