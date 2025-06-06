@@ -2,22 +2,14 @@
 
 import Link from "next/link";
 import "./css/Header.css";
-import { useEffect, useState } from "react";
+import type { Product } from "./Main";
 
-export default function Header() {
-    const [products, setProducts] = useState<
-        { productId: number; productName: string }[]
-    >([]);
+interface HeaderProps {
+    onProductSelect: (product: Product) => void;
+    products: Product[];
+}
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const response = await fetch("/api/products");
-            const data = await response.json();
-            setProducts(data);
-        };
-        fetchProducts();
-    }, []);
-
+export default function Header({ onProductSelect, products }: HeaderProps) {
     return (
         <header>
             <nav className="menu-nav">
@@ -33,12 +25,10 @@ export default function Header() {
                                     <div
                                         key={product.productId}
                                         className="submenu-item"
+                                        onClick={() => onProductSelect(product)}
+                                        style={{ cursor: "pointer" }}
                                     >
-                                        <Link
-                                            href={`/product/${product.productId}`}
-                                        >
-                                            {product.productName}
-                                        </Link>
+                                        {product.productName}
                                     </div>
                                 ))}
                         </div>
