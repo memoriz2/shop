@@ -4,6 +4,9 @@ import "./css/Main.css";
 import Header from "./Header";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export type ProductPhoto = {
     url: string;
@@ -14,6 +17,7 @@ export type Product = {
     productId: number;
     productName: string;
     productPhoto?: ProductPhoto | ProductPhoto[];
+    description?: string;
 };
 
 export default function Main() {
@@ -28,6 +32,15 @@ export default function Main() {
             .then((data) => setProducts(data));
     }, []);
 
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+    };
+
     return (
         <>
             <Header onProductSelect={setSelectedProduct} products={products} />
@@ -38,20 +51,23 @@ export default function Main() {
                         <p>상품 ID: {selectedProduct.productId}</p>
                         {Array.isArray(selectedProduct.productPhoto) &&
                         selectedProduct.productPhoto.length > 0 ? (
-                            selectedProduct.productPhoto.map(
-                                (photo: ProductPhoto, idx: number) => (
-                                    <Image
-                                        key={idx}
-                                        src={photo.url}
-                                        alt={
-                                            photo.filename ||
-                                            selectedProduct.productName
-                                        }
-                                        width={400}
-                                        height={300}
-                                    />
-                                )
-                            )
+                            <Slider {...sliderSettings}>
+                                {selectedProduct.productPhoto.map(
+                                    (photo: ProductPhoto, idx: number) => (
+                                        <div key={idx}>
+                                            <Image
+                                                src={photo.url}
+                                                alt={
+                                                    photo.filename ||
+                                                    selectedProduct.productName
+                                                }
+                                                width={400}
+                                                height={300}
+                                            />
+                                        </div>
+                                    )
+                                )}
+                            </Slider>
                         ) : selectedProduct.productPhoto &&
                           (selectedProduct.productPhoto as ProductPhoto).url ? (
                             <Image
@@ -75,6 +91,11 @@ export default function Main() {
                                 width={400}
                                 height={300}
                             />
+                        )}
+                        {selectedProduct.description && (
+                            <p style={{ marginTop: 20 }}>
+                                {selectedProduct.description}
+                            </p>
                         )}
                     </div>
                 )}
