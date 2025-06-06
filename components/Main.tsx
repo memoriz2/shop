@@ -8,7 +8,7 @@ import Image from "next/image";
 export type Product = {
     productId: number;
     productName: string;
-    productPhoto?: string | string[];
+    productPhoto?: any;
 };
 
 export default function Main() {
@@ -31,22 +31,35 @@ export default function Main() {
                     <div>
                         <h2>{selectedProduct.productName}</h2>
                         <p>상품 ID: {selectedProduct.productId}</p>
-                        {Array.isArray(selectedProduct.productPhoto) ? (
-                            selectedProduct.productPhoto.map((photo, idx) => (
-                                <Image
-                                    key={idx}
-                                    src={photo || "/default.jpg"}
-                                    alt={selectedProduct.productName}
-                                    width={400}
-                                    height={300}
-                                />
-                            ))
+                        {Array.isArray(selectedProduct.productPhoto) &&
+                        selectedProduct.productPhoto.length > 0 ? (
+                            selectedProduct.productPhoto.map(
+                                (photo: any, idx: number) => (
+                                    <Image
+                                        key={idx}
+                                        src={photo.url}
+                                        alt={
+                                            photo.filename ||
+                                            selectedProduct.productName
+                                        }
+                                        width={400}
+                                        height={300}
+                                    />
+                                )
+                            )
+                        ) : selectedProduct.productPhoto?.url ? (
+                            <Image
+                                src={selectedProduct.productPhoto.url}
+                                alt={
+                                    selectedProduct.productPhoto.filename ||
+                                    selectedProduct.productName
+                                }
+                                width={400}
+                                height={300}
+                            />
                         ) : (
                             <Image
-                                src={
-                                    selectedProduct.productPhoto ||
-                                    "/default.jpg"
-                                }
+                                src={"/default.jpg"}
                                 alt={selectedProduct.productName}
                                 width={400}
                                 height={300}
