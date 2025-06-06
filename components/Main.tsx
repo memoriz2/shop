@@ -24,10 +24,11 @@ export type Product = {
 interface ArrowProps extends HTMLAttributes<HTMLDivElement> {
     currentSlide?: number;
     slideCount?: number;
+    direction: "left" | "right";
 }
 
 function Arrow(props: ArrowProps) {
-    const { className, style, onClick } = props;
+    const { className, style, onClick, direction } = props;
     return (
         <div
             className={className}
@@ -36,15 +37,20 @@ function Arrow(props: ArrowProps) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "#888",
-                borderRadius: "50%",
+                background: "none",
+                border: "none",
                 width: 40,
                 height: 40,
                 zIndex: 3,
-                opacity: 0.7,
+                opacity: 1,
+                fontSize: 40,
+                color: "#444",
+                boxShadow: "none",
             }}
             onClick={onClick}
-        />
+        >
+            {direction === "left" ? "<" : ">"}
+        </div>
     );
 }
 
@@ -67,8 +73,8 @@ export default function Main() {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
-        nextArrow: <Arrow />,
-        prevArrow: <Arrow />,
+        nextArrow: <Arrow direction="right" />,
+        prevArrow: <Arrow direction="left" />,
     };
 
     return (
