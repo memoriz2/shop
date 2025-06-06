@@ -2,7 +2,7 @@
 
 import "./css/Main.css";
 import Header from "./Header";
-import { useState, useEffect } from "react";
+import { useState, useEffect, HTMLAttributes } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -21,7 +21,12 @@ export type Product = {
     description?: string;
 };
 
-function Arrow(props: any) {
+interface ArrowProps extends HTMLAttributes<HTMLDivElement> {
+    currentSlide?: number;
+    slideCount?: number;
+}
+
+function Arrow(props: ArrowProps) {
     const { className, style, onClick } = props;
     return (
         <div
