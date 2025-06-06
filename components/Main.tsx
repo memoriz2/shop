@@ -21,6 +21,28 @@ export type Product = {
     description?: string;
 };
 
+function Arrow(props: any) {
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#888",
+                borderRadius: "50%",
+                width: 40,
+                height: 40,
+                zIndex: 3,
+                opacity: 0.7,
+            }}
+            onClick={onClick}
+        />
+    );
+}
+
 export default function Main() {
     const [products, setProducts] = useState<Product[]>([]);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(
@@ -40,6 +62,8 @@ export default function Main() {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
+        nextArrow: <Arrow />,
+        prevArrow: <Arrow />,
     };
 
     return (
@@ -49,7 +73,6 @@ export default function Main() {
                 {selectedProduct && (
                     <div className={styles.detailWrapper}>
                         <h2>{selectedProduct.productName}</h2>
-                        <p>상품 ID: {selectedProduct.productId}</p>
                         <div className={styles.sliderWrapper}>
                             {Array.isArray(selectedProduct.productPhoto) &&
                             selectedProduct.productPhoto.length > 0 ? (
