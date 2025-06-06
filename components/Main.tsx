@@ -8,7 +8,7 @@ import Image from "next/image";
 export type Product = {
     productId: number;
     productName: string;
-    productPhoto?: string;
+    productPhoto?: string | string[];
 };
 
 export default function Main() {
@@ -27,29 +27,32 @@ export default function Main() {
         <>
             <Header onProductSelect={setSelectedProduct} products={products} />
             <main>
-                {selectedProduct ? (
+                {selectedProduct && (
                     <div>
                         <h2>{selectedProduct.productName}</h2>
                         <p>상품 ID: {selectedProduct.productId}</p>
-                        <Image
-                            src={selectedProduct.productPhoto || "/default.jpg"}
-                            alt={selectedProduct.productName}
-                            width={400}
-                            height={300}
-                        />
+                        {Array.isArray(selectedProduct.productPhoto) ? (
+                            selectedProduct.productPhoto.map((photo, idx) => (
+                                <Image
+                                    key={idx}
+                                    src={photo || "/default.jpg"}
+                                    alt={selectedProduct.productName}
+                                    width={400}
+                                    height={300}
+                                />
+                            ))
+                        ) : (
+                            <Image
+                                src={
+                                    selectedProduct.productPhoto ||
+                                    "/default.jpg"
+                                }
+                                alt={selectedProduct.productName}
+                                width={400}
+                                height={300}
+                            />
+                        )}
                     </div>
-                ) : (
-                    <ul>
-                        {products.map((product) => (
-                            <li key={product.productId}>
-                                <button
-                                    onClick={() => setSelectedProduct(product)}
-                                >
-                                    {product.productName}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
                 )}
             </main>
         </>
