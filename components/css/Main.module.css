@@ -1,0 +1,27 @@
+.detailWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.sliderWrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.slideItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slick-slider {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.slick-arrow {
+    z-index: 2;
+}
