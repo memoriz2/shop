@@ -5,10 +5,15 @@ import Header from "./Header";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+export type ProductPhoto = {
+    url: string;
+    filename?: string;
+};
+
 export type Product = {
     productId: number;
     productName: string;
-    productPhoto?: any;
+    productPhoto?: ProductPhoto | ProductPhoto[];
 };
 
 export default function Main() {
@@ -34,7 +39,7 @@ export default function Main() {
                         {Array.isArray(selectedProduct.productPhoto) &&
                         selectedProduct.productPhoto.length > 0 ? (
                             selectedProduct.productPhoto.map(
-                                (photo: any, idx: number) => (
+                                (photo: ProductPhoto, idx: number) => (
                                     <Image
                                         key={idx}
                                         src={photo.url}
@@ -47,12 +52,18 @@ export default function Main() {
                                     />
                                 )
                             )
-                        ) : selectedProduct.productPhoto?.url ? (
+                        ) : selectedProduct.productPhoto &&
+                          (selectedProduct.productPhoto as ProductPhoto).url ? (
                             <Image
-                                src={selectedProduct.productPhoto.url}
+                                src={
+                                    (
+                                        selectedProduct.productPhoto as ProductPhoto
+                                    ).url
+                                }
                                 alt={
-                                    selectedProduct.productPhoto.filename ||
-                                    selectedProduct.productName
+                                    (
+                                        selectedProduct.productPhoto as ProductPhoto
+                                    ).filename || selectedProduct.productName
                                 }
                                 width={400}
                                 height={300}
